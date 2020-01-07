@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class ConfigService {
 
-  private url: string;
+  //private url: string;
   private data: any;
 
   private configUrl = 'assets/config.json';
@@ -14,7 +14,6 @@ export class ConfigService {
       this.http.get(url)
         .subscribe(config => {
           this.data = config;
-
           resolve();
         });
       console.log(this.data);
@@ -23,17 +22,17 @@ export class ConfigService {
   }
 
   constructor(private http: HttpClient) {
-    this.http.get<any>(this.configUrl).subscribe(res => {
-      this.url = res.host;
+    /* this.http.get<any>(this.configUrl).subscribe(res => {
+      //this.url = res.host;
       //console.log(res.host);
-      console.log("config service");
+      console.log("config service!");
 
-    });
+    }); */
   }
 
 
-  getUrl() {
-    return this.url;
+  getUrl():string {
+    return this.data.host;
   }
 
 }
