@@ -9,6 +9,14 @@ export class ConfigService {
 
   private configUrl = 'assets/config.json';
 
+  constructor(private http: HttpClient) {
+    /* this.http.get<any>(this.configUrl).subscribe(res => {
+      //this.url = res.host;
+      //console.log(res.host);
+      console.log("config service!");
+
+    }); */
+  }
   load(url: string) {
     return new Promise((resolve) => {
       this.http.get(url)
@@ -21,17 +29,8 @@ export class ConfigService {
 
   }
 
-  constructor(private http: HttpClient) {
-    /* this.http.get<any>(this.configUrl).subscribe(res => {
-      //this.url = res.host;
-      //console.log(res.host);
-      console.log("config service!");
 
-    }); */
-  }
-
-
-  getUrl():string {
+  getUrl(): string {
     return this.data.host;
   }
 

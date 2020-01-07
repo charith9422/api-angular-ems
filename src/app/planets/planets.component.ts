@@ -19,7 +19,7 @@ export class PlanetsComponent implements OnInit {
   showConfig() {
     this.http.get(this.configService.getUrl()).subscribe(res => {
       console.log(res);
-      console.log("Worked!!!!!");
+      console.log("Worked!!!");
 
     })
     //console.log(this.configService.getUrl());
